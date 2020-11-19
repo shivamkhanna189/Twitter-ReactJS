@@ -1,20 +1,28 @@
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import React from "react"
+import SignIn from "./components/Login/login.component";
+import SignUp from "./components/sign-up/signup.component"; 
+import Footer from "./components/footer/footer.component"
+import ForgotPassword from "./components/forgot-password/forgot-password.component"
 
 function App() {
   return (
     <div className="App">
       <Switch>
-          <Route path="/" exact  render ={()=>{
-              return (<Redirect to="login"></Redirect>)
-          }}></Route>
-        
-          <Route  path="/login" component ={Login}></Route>
+          <Redirect exact from='/' to='/login' />
+
+          <Route  path="/login" component ={SignIn}></Route>
+          <Route path="/register" component = {SignUp}></Route>
           <Route  path="/home" component={Home}></Route>
           <Route path="/about" component = {About}></Route>
-          <Route  path="*" component = {NotFound}></Route> // Not found page
+          <Route path="/forgot" component = {ForgotPassword}></Route>
+        
+          <Route path='/404' component={NotFound} />
+          <Redirect exact from='*' to='/404' />
       </Switch>
+      <Footer />
+
    
     </div>
   );
@@ -41,14 +49,6 @@ class About extends React.Component{
   }
 }
 
-class Login extends React.Component{
-  render(){
-    return (
-    <div>
-      <h1> Login ....</h1>
-    </div>)
-  }
-}
 
 const NotFound = () =>
   <div>
