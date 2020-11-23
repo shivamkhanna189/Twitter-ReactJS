@@ -5,6 +5,7 @@ import SignIn from "./components/Login/login.component";
 import SignUp from "./components/sign-up/signup.component"; 
 import Footer from "./components/footer/footer.component"
 import ForgotPassword from "./components/forgot-password/forgot-password.component"
+import ResetPassword from './components/reset-password/reset-password.component';
 
 function App() {
   return (
@@ -13,11 +14,12 @@ function App() {
           <Redirect exact from='/' to='/login' />
 
           <Route  path="/login" component ={SignIn}></Route>
-          <Route path="/register" component = {SignUp}></Route>
-          <Route  path="/home" component={Home}></Route>
-          <Route path="/about" component = {About}></Route>
-          <Route path="/forgot" component = {ForgotPassword}></Route>
-        
+              <Route path="/register" component = {SignUp}></Route>
+              <Route  path="/home" component={Home}></Route>
+              <Route path="/about" component = {About}></Route>
+              <Route path="/forgot" component = {ForgotPassword}></Route>
+              <Route path ="/reset" component = {ResetPassword} ></Route>
+              
           <Route path='/404' component={NotFound} />
           <Redirect exact from='*' to='/404' />
       </Switch>
